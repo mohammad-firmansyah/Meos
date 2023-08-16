@@ -2,6 +2,7 @@ package com.example.jmp1.adapter;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jmp1.R;
+import com.example.jmp1.ui.Detail.DetailMhsActivity;
 
 import java.util.ArrayList;
 
@@ -34,6 +36,17 @@ public class LonglistAdapter extends RecyclerView.Adapter<LonglistAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nama.setText(list.get(position));
+        holder.nama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), DetailMhsActivity.class);
+
+                String dataString = list.get(position);
+                intent.putExtra("KEY_STRING", dataString);
+
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
 

@@ -22,7 +22,7 @@ public class LonglistActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        ArrayList<String> list = databaseHelper.getAllMhs();
+        ArrayList<String> list = databaseHelper.getAllStudentsList();
         RecyclerView rvMhs = findViewById(R.id.rvMhs);
         rvMhs.setLayoutManager(new LinearLayoutManager(this));
         LonglistAdapter adapter = new LonglistAdapter(list,getApplication());
